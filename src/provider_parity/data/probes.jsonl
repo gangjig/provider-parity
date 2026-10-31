@@ -1,0 +1,10 @@
+{"id": "arith-1", "prompt": "What is 17 + 25? Reply with only the number.", "checker": {"type": "exact", "expected": "42"}}
+{"id": "capital-1", "prompt": "What is the capital of France? Reply with only the city name.", "checker": {"type": "contains", "expected": "Paris"}}
+{"id": "json-1", "prompt": "Reply with only a JSON object: {\"answer\": <the number of days in a week>}", "checker": {"type": "json_field", "expected": 7, "field": "answer"}}
+{"id": "translate-1", "prompt": "Translate 'thank you' into German. Reply with only the translation.", "checker": {"type": "contains", "expected": "Danke"}}
+{"id": "symbol-1", "prompt": "What is the chemical symbol for gold? Reply with only the symbol.", "checker": {"type": "exact", "expected": "Au"}}
+{"id": "planet-1", "prompt": "Name the planet known as the Red Planet. Reply with only the name.", "checker": {"type": "contains", "expected": "Mars"}}
+{"id": "sides-1", "prompt": "How many sides does a hexagon have? Reply with only the number.", "checker": {"type": "exact", "expected": "6"}}
+{"id": "json-2", "prompt": "Reply with only a JSON object: {\"capital\": <the capital of Japan>}", "checker": {"type": "json_field", "expected": "Tokyo", "field": "capital"}}
+{"id": "ocean-1", "prompt": "What is the largest ocean on Earth? Reply with only its name.", "checker": {"type": "contains", "expected": "Pacific"}}
+{"id": "reverse-1", "prompt": "Spell the word 'necessary' backwards. Reply with only the reversed word.", "checker": {"type": "exact", "expected": "yrassecen"}}
