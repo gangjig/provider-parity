@@ -107,29 +107,20 @@ Verdicts are heuristics over a finite probe set, not proof:
 
 ## Recreate this project from a prompt
 
-> Build a Python CLI called `provider-parity` that checks whether the
-> same LLM served by different providers behaves like the same model.
-> It runs a fixed suite of probes — small tasks defined in JSONL, each
-> with a deterministic checker (exact string, substring, regex, or a
-> JSON field value; no LLM judge) — against two or more
-> OpenAI-compatible chat-completions endpoints configured in a JSON
-> file (name, base URL, model, API key referenced by environment
-> variable name), one request per probe at temperature 0, using only
-> the standard library. Every attempt, including transport errors,
-> becomes one JSONL run-log record with pass/fail, response text,
-> latency and reported token usage. A report command then compares
-> each provider against a baseline over their common probes:
-> success-rate delta, pass/fail outcome agreement, normalized-text
-> agreement, median completion-token and latency ratios, and optional
-> cost per successful probe from a prices file. It renders Markdown
-> and JSON, and assigns a heuristic verdict per provider — PARITY,
-> SUSPECT or DIVERGENT — from documented thresholds on the success
-> delta and agreement. Include a `demo` subcommand with two simulated
-> endpoints (one faithful, one silently degraded: some wrong answers,
-> inflated token usage, higher latency) so the whole pipeline runs
-> offline with no API keys, plus a pytest suite covering the checkers,
-> the runner (with a fake transport and a real local HTTP server), the
-> comparison math and verdict bands, and the CLI.
+> Write a small Python command-line tool, standard library only, that
+> checks whether the same LLM served by different providers actually
+> behaves like the same model. It runs a fixed suite of small probe
+> tasks, each scored by a deterministic checker with no LLM judge,
+> against two or more OpenAI-compatible endpoints at temperature zero,
+> and logs every attempt (pass or fail, response text, latency, and
+> token usage) to a JSONL run log. A report then compares each provider
+> against a baseline over their shared probes: success-rate difference,
+> agreement on outcomes and on normalized response text, token and
+> latency ratios, and optionally cost per successful probe. Each
+> provider gets a verdict of parity, suspect, or divergent from
+> documented thresholds, and a demo with two simulated endpoints, one
+> faithful and one silently degraded, runs the whole pipeline offline
+> with no API keys.
 
 ## Limitations
 
